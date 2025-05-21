@@ -1,0 +1,73 @@
+/* FormCadastro.css */
+
+.form-cadastro {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fefefe;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .form-cadastro h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .form-cadastro h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #555;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+  }
+  
+  .form-cadastro form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-cadastro input[type="text"],
+  .form-cadastro input[type="number"],
+  .form-cadastro input[type="date"],
+  .form-cadastro select,
+  .form-cadastro textarea {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    resize: vertical;
+    transition: border-color 0.3s;
+  }
+  
+  .form-cadastro input[type="text"]:focus,
+  .form-cadastro input[type="number"]:focus,
+  .form-cadastro input[type="date"]:focus,
+  .form-cadastro select:focus,
+  .form-cadastro textarea:focus {
+    border-color: #4a90e2;
+    outline: none;
+  }
+  
+  .form-cadastro textarea {
+    min-height: 80px;
+  }
+  
+  .form-cadastro button {
+    padding: 12px;
+    background-color: #4a90e2;
+    color: white;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .form-cadastro button:hover {
+    background-color: #357ABD;
+  }
+  

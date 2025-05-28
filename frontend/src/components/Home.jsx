@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/Home.css';
 
-const Home = ({ registros = [] }) => {
+const Home = ({ registros = [], excluirPaciente, editarPaciente }) => {
   return (
     <div className="content">
       <h1>Visão Geral</h1>
@@ -35,14 +35,31 @@ const Home = ({ registros = [] }) => {
             </thead>
             <tbody>
               {registros.map((registro, index) => (
-                <tr key={index}>
+                <tr key={registro.id || index}>
                   <td>{index + 1}</td>
-                  <td>{registro.data}</td>
-                  <td>ABC-{index + 123}</td> {/* Ajuste conforme necessário */}
+                  <td>{registro.data || '-'}</td>
+                  <td>{registro.id || `ABC-${index + 123}`}</td>
                   <td>{registro.nome}</td>
                   <td>{registro.idade}</td>
                   <td>{registro.genero}</td>
-                  <td>Editar | Excluir</td>
+                  <td>
+                    <button
+                      onClick={() =>
+                        editarPaciente(
+                          registro.id,
+                          registro.nome,
+                          registro.idade,
+                          registro.genero
+                        )
+                      }
+                      style={{ marginRight: '8px' }}
+                    >
+                      Editar
+                    </button>
+                    <button onClick={() => excluirPaciente(registro.id)}>
+                      Excluir
+                    </button>
+                  </td>
                 </tr>
               ))}
             </tbody>

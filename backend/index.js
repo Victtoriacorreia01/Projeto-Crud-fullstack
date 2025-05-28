@@ -1,20 +1,17 @@
 const express = require('express');
 const cors = require('cors');
-const pacienteRoutes = require('./routes/pacienteRoutes'); // Suas rotas
+const pacienteRoutes = require('./routes/pacienteRoutes');
 
 const app = express();
+app.use(cors());
+app.use(express.json());
 
-// Configuração de CORS
-app.use(cors({
-  origin: 'http://localhost:3000', // Permitir o frontend
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos permitidos
-  allowedHeaders: ['Content-Type'], // Cabeçalhos permitidos
-  credentials: true, // Necessário se usar cookies ou autenticação
-}));
 
-app.use(express.json()); // Middleware para interpretar JSON
+app.get('/api/teste', (req, res) => {
+  res.send('Rota GET /api/teste funcionando!');
+});
 
-// Rota principal
+
 app.use('/api', pacienteRoutes);
 
 const PORT = 3001;

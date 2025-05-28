@@ -1,19 +1,14 @@
-const mysql = require('mysql2');
+const mysql = require('mysql2/promise'); 
 require('dotenv').config();
 
-const connection = mysql.createConnection({
+const connection = mysql.createPool({
   host: process.env.DB_HOST || 'localhost',
   user: process.env.DB_USER || 'root',
   password: process.env.DB_PASSWORD || 'Victtoria01&',
-  database: process.env.DB_NAME || 'projeto_faculdade'
-});
-
-connection.connect((err) => {
-  if (err) {
-    console.error('Erro ao conectar ao banco:', err);
-    return;
-  }
-  console.log('Conectado ao banco MySQL!');
+  database: process.env.DB_NAME || 'projeto_faculdade',
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0
 });
 
 module.exports = connection;

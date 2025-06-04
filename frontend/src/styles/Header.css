@@ -1,45 +1,85 @@
 .header {
-    background-color: #2fbc96; /* Verde agradável */
-    padding: 1rem 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
+  background: linear-gradient(90deg, #00c490 0%, #00d3b0 100%);
+  padding: 15px 30px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.header-logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  user-select: none;
+  cursor: default;
+}
+
+
+.header-menu {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+.header-menu li a {
+  text-decoration: none;
+  color: #f8f8f8;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 6px 12px;
+  border-radius: 5px;
+  transition: color 0.3s;
+  position: relative; 
+}
+
+.header-menu li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 0;
+  background-color: #ff8400; 
+  transition: width 0.3s ease;
+  border-radius: 2px;
+  margin-top: 5px;
+}
+
+
+.header-menu li a:hover::after,
+.header-menu li a:focus::after {
+  width: 100%;
+}
+
+
+.header-menu li a:hover,
+.header-menu li a:focus {
+  color: #f4f4f4;
+  outline: none;
+}
+
+
+
+@media (max-width: 768px) {
   .header-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    gap: 15px;
   }
-  
-  .header-title {
-    font-size: 1.8rem;
-    color: #fff;
-    margin-bottom: 0.5rem;
+
+  .header-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
   }
-  
-  .header-nav .header-menu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    gap: 1rem;
-  }
-  
-  .header-nav .header-menu li {
-    font-size: 1rem;
-  }
-  
-  .header-nav .header-menu a {
-    text-decoration: none;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .header-nav .header-menu a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-  }
-  
+}

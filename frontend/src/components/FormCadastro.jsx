@@ -37,8 +37,9 @@ const FormCadastro = () => {
       medicamento: { nome: nomeMedicamento, indicacao },
     };
 
-    handleAddRegistro(newRegistro); 
+    handleAddRegistro(newRegistro);
 
+    // Limpa os campos
     setData('');
     setNome('');
     setIdade('');
@@ -53,84 +54,90 @@ const FormCadastro = () => {
 
   return (
     <div className="form-cadastro">
-      <h2>Cadastrar Doença e Medicamento</h2>
-      <form onSubmit={handleSubmit}>
-        <h3>Informações do Paciente</h3>
-        <input
-          type="date"
-          placeholder="Data"
-          value={data}
-          onChange={(e) => setData(e.target.value)}
-          required
-        />
-        <input
-          type="text"
-          placeholder="Nome"
-          value={nome}
-          onChange={(e) => setNome(e.target.value)}
-          required
-        />
-        <input
-          type="number"
-          placeholder="Idade"
-          value={idade}
-          onChange={(e) => setIdade(e.target.value)}
-          required
-        />
-        <select
-          value={genero}
-          onChange={(e) => setGenero(e.target.value)}
-          required
-        >
-          <option value="">Selecione o Gênero</option>
-          <option value="Masculino">Masculino</option>
-          <option value="Feminino">Feminino</option>
-          <option value="Outro">Outro</option>
-        </select>
+      <h2>Cadastro de Pacientes</h2>
+      <form onSubmit={handleSubmit} className="form-content">
+        <div className="form-column">
+          <h3>Informações do Paciente</h3>
+          <input
+            type="date"
+            placeholder="Data"
+            value={data}
+            onChange={(e) => setData(e.target.value)}
+            required
+          />
+          <input
+            type="text"
+            placeholder="Nome"
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
+            required
+          />
+          <input
+            type="number"
+            placeholder="Idade"
+            value={idade}
+            onChange={(e) => setIdade(e.target.value)}
+            required
+          />
+          <select
+            value={genero}
+            onChange={(e) => setGenero(e.target.value)}
+            required
+          >
+            <option value="">Selecione o Gênero</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Feminino">Feminino</option>
+            <option value="Outro">Outro</option>
+          </select>
 
-        <h3>Informações da Doença</h3>
-        <input
-          type="text"
-          placeholder="Nome da Doença"
-          value={nomeDoenca}
-          onChange={(e) => setNomeDoenca(e.target.value)}
-          required
-        />
-        <textarea
-          placeholder="Sintomas"
-          value={sintomas}
-          onChange={(e) => setSintomas(e.target.value)}
-          required
-        />
-        <textarea
-          placeholder="Descrição"
-          value={descricao}
-          onChange={(e) => setDescricao(e.target.value)}
-          required
-        />
-        <textarea
-          placeholder="Tratamento"
-          value={tratamento}
-          onChange={(e) => setTratamento(e.target.value)}
-          required
-        />
+          <h3>Informações da Doença</h3>
+          <input
+            type="text"
+            placeholder="Nome da Doença"
+            value={nomeDoenca}
+            onChange={(e) => setNomeDoenca(e.target.value)}
+            required
+          />
+          <textarea
+            placeholder="Sintomas"
+            value={sintomas}
+            onChange={(e) => setSintomas(e.target.value)}
+            required
+          />
+          <textarea
+            placeholder="Descrição"
+            value={descricao}
+            onChange={(e) => setDescricao(e.target.value)}
+            required
+          />
+        </div>
 
-        <h3>Informações do Medicamento</h3>
-        <input
-          type="text"
-          placeholder="Nome do Medicamento"
-          value={nomeMedicamento}
-          onChange={(e) => setNomeMedicamento(e.target.value)}
-          required
-        />
-        <textarea
-          placeholder="Indicação"
-          value={indicacao}
-          onChange={(e) => setIndicacao(e.target.value)}
-          required
-        />
+        <div className="form-column">
+          <textarea
+            className='tratamento'
+            placeholder="Tratamento"
+            value={tratamento}
+            onChange={(e) => setTratamento(e.target.value)}
+            required
+          />
 
-        <button type="submit">Cadastrar</button>
+          <h3>Informações do Medicamento</h3>
+          <input
+            type="text"
+            placeholder="Nome do Medicamento"
+            value={nomeMedicamento}
+            onChange={(e) => setNomeMedicamento(e.target.value)}
+            required
+          />
+          <textarea
+            placeholder="Indicação"
+            value={indicacao}
+            onChange={(e) => setIndicacao(e.target.value)}
+            required
+          />
+
+          <button type="submit">Cadastrar</button>
+        </div>
       </form>
     </div>
   );

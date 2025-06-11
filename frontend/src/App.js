@@ -18,7 +18,7 @@ function App() {
         <Header />
         <SideBar />
         <Routes>
-          <Route path="/" element={<HomePage registros={registros} />} />
+          <Route path="/" element={<HomePage registros={registros}/>} />
           <Route path="/cadastro" element={<Cadastro onAddRegistro={addRegistro} />} />
         </Routes>
       </div>

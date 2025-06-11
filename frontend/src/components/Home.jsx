@@ -1,7 +1,8 @@
 import React from 'react';
 import '../styles/Home.css';
 
-const Home = ({ registros = [], excluirPaciente, editarPaciente }) => {
+const Home = ({ registros = [], excluirPaciente, editarPaciente }) => {  
+  
   return (
     <div className="content">
       <h1>Visão Geral</h1>

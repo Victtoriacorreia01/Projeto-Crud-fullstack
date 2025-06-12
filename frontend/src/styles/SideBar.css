@@ -1,54 +1,71 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap');
+
 .sidebar {
-    width: 250px;
-    height: 100vh;
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: fixed;
+  width: 250px;
+  height: 100vh;
+  background-color: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+  font-family: 'Jost', sans-serif;
+  padding-top: -0rem;
+  z-index: 200;
+}
+
+.sidebar-logo {
+  text-align: center;
+  padding: 1rem 0rem -50px;
+}
+
+.sidebar-logo img {
+  max-width: 250px;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: block;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 12rem;
+}
+
+.sidebar-menu li {
+  margin: 0.25rem 0;
+}
+
+.sidebar-menu a {
+  text-decoration: none;
+  color: #333;
+  padding: 0.75rem 1.5rem;
+  display: block;
+  border-radius: 10px;
+  transition: background-color 0.3s, color 0.3s;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.sidebar-menu a:hover,
+.sidebar-menu a:focus {
+  background-color: #e0f7f2;
+  color: #00b783;
+  outline: none;
+}
+
+.sidebar-footer {
+  text-align: center;
+  font-size: 0.75rem;
+  padding: 1rem;
+  color: #777;
+  border-top: 1px solid #ddd;
+  background-color: #f0f0f0;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
   }
-  
-  .sidebar-logo {
-    text-align: center;
-    padding: 1.5rem;
-  }
-  
-  .sidebar-logo img {
-    max-width: 250px;
-    border-radius: 50%;
-    margin-bottom: -80%;
-  }
-  
-  .sidebar-menu {
-    
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .sidebar-menu li {
-    margin: 1rem 0;
-    margin-left: 50px;
-  }
-  
-  .sidebar-menu a {
-    text-decoration: none;
-    color: #333;
-    padding: 0.5rem 1rem;
-    display: block;
-    border-radius: 8px;
-    transition: background-color 0.3s;
-    font-size: 1rem;
-  }
-  
-  .sidebar-menu a:hover {
-    color: #00b783;
-  }
-  
-  .sidebar-footer {
-    text-align: center;
-    font-size: 0.8rem;
-    padding: 1rem;
-    color: #555;
-  }
-  
+}

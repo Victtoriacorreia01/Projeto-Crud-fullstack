@@ -1,9 +1,13 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap');
+
 .header {
-  background: linear-gradient(90deg, #00c490 0%, #00d3b0 100%);
+  background: linear-gradient(90deg, #018b66 0%, #00d3b0 100%);
   padding: 15px 30px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   color: #fff;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Jost', sans-serif;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -17,30 +21,32 @@
   justify-content: space-between;
 }
 
-
-.header-logo {
-  font-size: 1.8rem;
+.header-logo{
+  font-size: 2rem;
+  color: #fff;
   font-weight: 700;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
   user-select: none;
   cursor: default;
+  font-family: 'Jost', sans-serif;
 }
-
 
 .header-menu {
   list-style: none;
   display: flex;
   gap: 25px;
 }
+
 .header-menu li a {
   text-decoration: none;
-  color: #f8f8f8;
-  font-weight: 600;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #f0f0f0;
+  font-weight: 500;
   font-size: 1rem;
   padding: 6px 12px;
   border-radius: 5px;
-  transition: color 0.3s;
-  position: relative; 
+  transition: color 0.3s, background 0.3s;
+  position: relative;
 }
 
 .header-menu li a::after {
@@ -50,26 +56,22 @@
   bottom: 0;
   height: 3px;
   width: 0;
-  background-color: #ff8400; 
+  background-color: #ff8400;
   transition: width 0.3s ease;
   border-radius: 2px;
   margin-top: 5px;
 }
-
 
 .header-menu li a:hover::after,
 .header-menu li a:focus::after {
   width: 100%;
 }
 
-
 .header-menu li a:hover,
 .header-menu li a:focus {
-  color: #f4f4f4;
+  color: #ffffff;
   outline: none;
 }
-
-
 
 @media (max-width: 768px) {
   .header-container {

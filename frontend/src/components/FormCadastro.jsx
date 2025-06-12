@@ -3,16 +3,26 @@ import '../styles/FormCadastro.css';
 import { poster } from '../utils/axiosConfig';
 
 const FormCadastro = () => {
-  const [data, setData] = useState('');
-  const [nome, setNome] = useState('');
-  const [idade, setIdade] = useState('');
-  const [genero, setGenero] = useState('');
-  const [nomeDoenca, setNomeDoenca] = useState('');
-  const [sintomas, setSintomas] = useState('');
-  const [descricao, setDescricao] = useState('');
-  const [tratamento, setTratamento] = useState('');
-  const [nomeMedicamento, setNomeMedicamento] = useState('');
-  const [indicacao, setIndicacao] = useState('');
+  const [formData, setFormData] = useState({
+    data: '',
+    nome: '',
+    idade: '',
+    genero: '',
+    nomeDoenca: '',
+    sintomas: '',
+    descricao: '',
+    tratamento: '',
+    nomeMedicamento: '',
+    indicacao: ''
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
 
   const handleAddRegistro = async (registro) => {
     try {
@@ -29,59 +39,72 @@ const FormCadastro = () => {
     e.preventDefault();
 
     const newRegistro = {
-      data,
-      nome,
-      idade,
-      genero,
-      doenca: { nome: nomeDoenca, sintomas, descricao, tratamento },
-      medicamento: { nome: nomeMedicamento, indicacao },
+      data: formData.data,
+      nome: formData.nome,
+      idade: formData.idade,
+      genero: formData.genero,
+      doenca: {
+        nome: formData.nomeDoenca,
+        sintomas: formData.sintomas,
+        descricao: formData.descricao,
+        tratamento: formData.tratamento
+      },
+      medicamento: {
+        nome: formData.nomeMedicamento,
+        indicacao: formData.indicacao
+      }
     };
 
     handleAddRegistro(newRegistro);
 
-    // Limpa os campos
-    setData('');
-    setNome('');
-    setIdade('');
-    setGenero('');
-    setNomeDoenca('');
-    setSintomas('');
-    setDescricao('');
-    setTratamento('');
-    setNomeMedicamento('');
-    setIndicacao('');
+    // Limpa o formulário
+    setFormData({
+      data: '',
+      nome: '',
+      idade: '',
+      genero: '',
+      nomeDoenca: '',
+      sintomas: '',
+      descricao: '',
+      tratamento: '',
+      nomeMedicamento: '',
+      indicacao: ''
+    });
   };
 
   return (
     <div className="form-cadastro">
-      <h2>Cadastro de Pacientes</h2>
+      <h2>CADASTRO DE PACIENTES</h2>
       <form onSubmit={handleSubmit} className="form-content">
         <div className="form-column">
           <h3>Informações do Paciente</h3>
           <input
             type="date"
-            placeholder="Data"
-            value={data}
-            onChange={(e) => setData(e.target.value)}
+            name="data"
+            value={formData.data}
+            onChange={handleChange}
             required
           />
           <input
             type="text"
+            name="nome"
             placeholder="Nome"
-            value={nome}
-            onChange={(e) => setNome(e.target.value)}
+            value={formData.nome}
+            onChange={handleChange}
             required
           />
           <input
             type="number"
+            name="idade"
             placeholder="Idade"
-            value={idade}
-            onChange={(e) => setIdade(e.target.value)}
+            value={formData.idade}
+            onChange={handleChange}
             required
           />
           <select
-            value={genero}
-            onChange={(e) => setGenero(e.target.value)}
+            name="genero"
+            value={formData.genero}
+            onChange={handleChange}
             required
           >
             <option value="">Selecione o Gênero</option>
@@ -93,46 +116,52 @@ const FormCadastro = () => {
           <h3>Informações da Doença</h3>
           <input
             type="text"
+            name="nomeDoenca"
             placeholder="Nome da Doença"
-            value={nomeDoenca}
-            onChange={(e) => setNomeDoenca(e.target.value)}
+            value={formData.nomeDoenca}
+            onChange={handleChange}
             required
           />
           <textarea
+            name="sintomas"
             placeholder="Sintomas"
-            value={sintomas}
-            onChange={(e) => setSintomas(e.target.value)}
+            value={formData.sintomas}
+            onChange={handleChange}
             required
           />
           <textarea
+            name="descricao"
             placeholder="Descrição"
-            value={descricao}
-            onChange={(e) => setDescricao(e.target.value)}
+            value={formData.descricao}
+            onChange={handleChange}
             required
           />
         </div>
 
         <div className="form-column">
           <textarea
-            className='tratamento'
+            name="tratamento"
+            className="tratamento"
             placeholder="Tratamento"
-            value={tratamento}
-            onChange={(e) => setTratamento(e.target.value)}
+            value={formData.tratamento}
+            onChange={handleChange}
             required
           />
 
           <h3>Informações do Medicamento</h3>
           <input
             type="text"
+            name="nomeMedicamento"
             placeholder="Nome do Medicamento"
-            value={nomeMedicamento}
-            onChange={(e) => setNomeMedicamento(e.target.value)}
+            value={formData.nomeMedicamento}
+            onChange={handleChange}
             required
           />
           <textarea
+            name="indicacao"
             placeholder="Indicação"
-            value={indicacao}
-            onChange={(e) => setIndicacao(e.target.value)}
+            value={formData.indicacao}
+            onChange={handleChange}
             required
           />
 

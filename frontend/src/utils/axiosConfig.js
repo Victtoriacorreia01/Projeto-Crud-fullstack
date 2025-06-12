@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-// Criação da instância do axios
+
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:3001/api', // Porta e rota base corretas do backend
-  timeout: 15000, // Timeout de 15 segundos
+  baseURL: 'http://localhost:3001/api',
+  timeout: 15000, 
   headers: {
     'Content-Type': 'application/json',
   },
@@ -53,5 +53,4 @@ export const putter = async (url, data, config = {}) => {
   }
 };
 
-// Exporta a instância configurada
 export default axiosInstance;

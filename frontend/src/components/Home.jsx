@@ -13,6 +13,7 @@ const formatarData = (dataString) => {
 const Home = ({ registros = [], excluirPaciente, editarPaciente }) => {
   const [modalAberto, setModalAberto] = useState(false);
   const [pacienteEditando, setPacienteEditando] = useState(null);
+  const [busca, setBusca] = useState('');
 
   const abrirModalEditar = (paciente) => {
     setPacienteEditando(paciente);
@@ -32,13 +33,16 @@ const Home = ({ registros = [], excluirPaciente, editarPaciente }) => {
     }));
   };
 
-
   const handleSalvar = () => {
     if (editarPaciente && pacienteEditando) {
       editarPaciente(pacienteEditando);
       fecharModal();
     }
   };
+
+  const registrosFiltrados = registros.filter(registro =>
+    registro.nome.toLowerCase().includes(busca.toLowerCase())
+  );
 
   return (
     <div className="content">
@@ -51,11 +55,21 @@ const Home = ({ registros = [], excluirPaciente, editarPaciente }) => {
         </div>
       </div>
 
+      <div className="busca-container">
+        <input
+          type="text"
+          placeholder="🔍 Buscar..."
+          value={busca}
+          onChange={(e) => setBusca(e.target.value)}
+          className="input-busca"
+        />
+      </div>
+
       <h2>Últimos Pacientes Cadastrados</h2>
 
       <div className="table-container">
-        {registros.length === 0 ? (
-          <p className="empty-message">Nenhum registro cadastrado.</p>
+        {registrosFiltrados.length === 0 ? (
+          <p className="empty-message">Nenhum paciente encontrado.</p>
         ) : (
           <table>
             <thead>
@@ -70,7 +84,7 @@ const Home = ({ registros = [], excluirPaciente, editarPaciente }) => {
               </tr>
             </thead>
             <tbody>
-              {registros.map((registro, index) => (
+              {registrosFiltrados.map((registro, index) => (
                 <tr key={registro.id || index}>
                   <td>{index + 1}</td>
                   <td>{formatarData(registro.data)}</td>

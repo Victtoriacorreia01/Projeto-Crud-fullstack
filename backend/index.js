@@ -1,18 +1,15 @@
 const express = require('express');
 const cors = require('cors');
+
 const pacienteRoutes = require('./routes/pacienteRoutes');
+const authRoutes = require('./routes/authRoutes'); 
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-
-app.get('/api/teste', (req, res) => {
-  res.send('Rota GET /api/teste funcionando!');
-});
-
-
 app.use('/api', pacienteRoutes);
+app.use('/api', authRoutes);
 
 const PORT = 3001;
 app.listen(PORT, () => {

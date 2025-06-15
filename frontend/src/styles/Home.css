@@ -19,7 +19,9 @@ h1 {
 h2 {
   margin-bottom: 20px;
   color: #34495e;
+  font-size: 19px;
   font-weight: 600;
+  margin-left: 10px;
 }
 
 .cards {
@@ -33,7 +35,7 @@ h2 {
 .card {
   flex: 1;
   max-width: 280px;
-  background-color: #00d19a;
+  background-color: #ff5e00;
   border-radius: 14px;
   padding: 5px 0px;
   box-shadow: 0 6px 15px rgba(0, 209, 154, 0.3);
@@ -306,4 +308,32 @@ table tbody tr:hover {
     width: 100%;
   }
 }
+
+.busca-container {
+  margin: 20px 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.input-busca {
+  font-size: 10px;
+  padding: 10px 14px;
+  width: 100%;
+  max-width: 200px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input-busca:focus {
+  border-color: #ffffff;
+  box-shadow: 0 0 0 2px rgba(162, 162, 162, 0.2);
+}
+
+.input-busca .placeholder{
+  font-size: 10px;
+}
+
 

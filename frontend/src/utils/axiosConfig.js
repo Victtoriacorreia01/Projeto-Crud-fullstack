@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-
 const axiosInstance = axios.create({
   baseURL: 'http://localhost:3001/api',
   timeout: 15000, 
@@ -8,6 +7,20 @@ const axiosInstance = axios.create({
     'Content-Type': 'application/json',
   },
 });
+
+// Interceptador para adicionar o token JWT automaticamente
+axiosInstance.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('token'); // pega o token do localStorage
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`; // adiciona o token no cabeçalho
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
 
 // Função para requisições GET
 export const fetcher = async (url, config = {}) => {
